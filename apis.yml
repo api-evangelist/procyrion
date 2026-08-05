@@ -1,8 +1,18 @@
 aid: procyrion
 name: Procyrion
-description: 'Procyrion is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Procyrion, Inc. is a privately held, clinical-stage medical device company
+  headquartered in Houston, Texas, developing Aortix, a catheter-deployed percutaneous
+  mechanical circulatory support (pMCS) pump. Aortix is placed in the descending thoracic
+  aorta and uses fluid entrainment to unload the heart and increase perfusion to the
+  kidneys, targeting acute decompensated heart failure with diuretic resistance, prevention
+  of acute kidney injury during cardiac surgery, cardiac unloading to limit myocardial
+  infarct size, and longer-term chronic heart failure therapy. The device is under
+  investigation in the DRAIN-HF pivotal IDE trial and is limited by federal law to
+  investigational use; it is not approved for sale in any geography. Procyrion is a
+  medical hardware and clinical company - it publishes no developer program, public API,
+  SDK, or machine-readable API contract.'
 url: https://raw.githubusercontent.com/api-evangelist/procyrion/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/587e5c5029ad9b731046dd9c/63752bc5ff893ac4d4772909_ProcyrionLogo.svg
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +22,13 @@ created: '2026-08-05'
 modified: '2026-08-05'
 tags:
 - Company
+- Medical Devices
+- Health Care
+- Cardiology
+- Heart Failure
+- Mechanical Circulatory Support
+- Medical Technology
+- Clinical Trials
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +36,50 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/procyrion-domain-security.yml
+- type: Conformance
+  url: conformance/procyrion-conformance.yml
+- type: LLMsTxt
+  url: llms/procyrion-llms.txt
 - type: Website
+  url: https://www.procyrion.com/
+- type: Blog
+  url: https://www.procyrion.com/news-all
+- type: Contact
+  url: https://www.procyrion.com/contact
+- type: Support
+  url: mailto:info@procyrion.com
+- type: TermsOfService
+  url: https://www.procyrion.com/disclaimer
+- type: LinkedIn
+  url: https://www.linkedin.com/company/procyrion/
+- type: Twitter
+  url: https://twitter.com/Procyrion
+- type: SecondaryMarket
   url: https://forgeglobal.com/procyrion_stock/
+
+x-enrichment:
+  date: '2026-08-05'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v1
+
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Procyrion is a clinical-stage medical device manufacturer whose product is a
+    catheter-deployed blood pump, not software; www.procyrion.com is a Webflow marketing
+    site whose sitemap contains no developer, API or documentation path, and
+    api./developer./docs./portal.procyrion.com have no DNS record at all.
+  evidence:
+  - url: https://www.procyrion.com/openapi.json
+    status: 404
+  - url: https://www.procyrion.com/.well-known/agent-card.json
+    status: 404
+  - url: https://www.procyrion.com/llms.txt
+    status: 404
+  - url: https://www.procyrion.com/sitemap.xml
+    status: 200
+  checked: '2026-08-05'

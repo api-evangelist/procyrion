@@ -1,0 +1,78 @@
+generated: '2026-08-05'
+method: probed
+source: >-
+  live probes of /.well-known/ and contract-discovery paths on every Procyrion host
+  reachable from apis.yml, 2026-08-05
+result: >-
+  none - Procyrion publishes no /.well-known/ document and no machine-readable API
+  contract on any host it controls. www.procyrion.com is a Webflow marketing site for a
+  clinical-stage medical device company; there is no API host, docs host or developer
+  portal to probe. api.procyrion.com, developer.procyrion.com, docs.procyrion.com,
+  portal.procyrion.com, status.procyrion.com and trust.procyrion.com do not resolve in
+  DNS (no A/AAAA record), so those rows are recorded as unresolved rather than as an
+  HTTP status.
+note: >-
+  Every 404 below is a real origin miss, not a soft-404: the /.well-known/* paths return
+  an 88-byte text/html body from the Webflow edge while the site's own HTML 404 page is
+  3604 bytes, so a control path and a probed path return demonstrably different responses.
+  No `WellKnown` pointer is wired in apis.yml - an index that documents absence is not a
+  well-known catalog, and wiring it would credit a discovery surface Procyrion does not
+  publish.
+hosts:
+- host: https://www.procyrion.com
+  platform: Webflow
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: >-
+      76 bytes; a single `Disallow: /ifu` rule (instructions-for-use pages) plus the
+      sitemap reference. No AI-crawler blocks.
+  - path: /sitemap.xml
+    status: 200
+    note: >-
+      Webflow-generated sitemap, ~120 URLs, all marketing/news/team/careers pages. No
+      developer, API, documentation or portal path anywhere in it.
+- host: api.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record
+- host: developer.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record
+- host: docs.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record
+- host: portal.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record
+- host: status.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record
+- host: trust.procyrion.com
+  resolved: false
+  note: no DNS A/AAAA record

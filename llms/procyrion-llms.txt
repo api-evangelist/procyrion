@@ -1,0 +1,49 @@
+# Procyrion
+
+> Procyrion, Inc. is a privately held, clinical-stage medical device company headquartered in Houston, Texas, founded in 2005. It develops Aortix, a catheter-deployed percutaneous mechanical circulatory support (pMCS) pump placed in the descending thoracic aorta, which uses fluid entrainment to unload the heart and increase perfusion to the kidneys. It is led by CEO Ben Hertzog.
+
+Procyrion is a medical hardware and clinical-research business, not a software vendor. As of 2026-08-05 it publishes **no public API, no developer portal, no API documentation, no SDK and no machine-readable API contract**. Its web presence is a Webflow marketing site. Do not assume or invent an `api.procyrion.com`, `docs.procyrion.com`, `developer.procyrion.com`, `portal.procyrion.com` or `status.procyrion.com` endpoint — none of those hosts resolve in DNS. `/openapi.json`, `/swagger.json`, `/graphql`, `/llms.txt`, `/.well-known/security.txt`, `/.well-known/agent-card.json` and `/.well-known/agent.json` all return 404 on www.procyrion.com.
+
+Aortix is limited by federal law to investigational use and is **not approved for sale in any geography**. Statements about it should be read as investigational, not commercial.
+
+## Company
+
+- [Procyrion](https://www.procyrion.com/): company website
+- [Overview](https://www.procyrion.com/overview): the Aortix technology, indications and status
+- [Team](https://www.procyrion.com/team): leadership and scientific advisory board
+- [News](https://www.procyrion.com/news-all): press releases and articles
+- [Careers](https://www.procyrion.com/careers): open roles
+- [Contact](https://www.procyrion.com/contact): info@procyrion.com, Houston, Texas
+- [Disclaimer and Terms of Use](https://www.procyrion.com/disclaimer): site terms, medical disclaimer and device status
+
+## Technology
+
+Aortix is a catheter-deployed pump implanted in the descending thoracic aorta in a minimally invasive procedure. It reduces pressure upstream in the aortic root and raises it downstream, lowering systemic vascular resistance so the heart works less while renal perfusion increases. Four indications are described by the company: acute decompensated heart failure with diuretic resistance; renal support to prevent acute kidney injury during cardiac surgery; cardiac unloading to limit myocardial infarct size; and longer-term chronic heart failure therapy. Clinical evaluation currently focuses on the first two.
+
+## Regulatory and clinical status
+
+- FDA Breakthrough Device Designation granted 2019-07-30 — see [the announcement](https://www.procyrion.com/news/procyrion-receives-fda-breakthrough-device-designation-for-aortix-tm-system)
+- ISO 13485:2016 quality management system certification announced 2018 — see [the announcement](https://www.procyrion.com/news/procyrion-inc-announces-iso-13485-2016-certification)
+- [DRAIN-HF pivotal IDE trial, NCT05677100](https://clinicaltrials.gov/study/NCT05677100): RECRUITING, started 2023-08-23, target enrollment 320
+- [Aortix CRS Pilot Study, NCT04145635](https://clinicaltrials.gov/study/NCT04145635): COMPLETED
+- [Aortix Therapy for Perioperative Reduction of Kidney Injury, NCT04999163](https://clinicaltrials.gov/study/NCT04999163): TERMINATED
+- [Clinical trials](https://www.procyrion.com/clinical-trials): the company's own trial summary
+
+Full detail in `conformance/procyrion-conformance.yml` in this repository.
+
+## Funding
+
+- [Series E, $57.7M, February 2024](https://www.procyrion.com/news/procyrion-closes-57-million-in-series-e-financing): led by Fannin Partners with new and existing family and multi-family office investors, including conversion of $10.0M of interim financing
+- [Forge Global secondary market listing](https://forgeglobal.com/procyrion_stock/)
+
+## Social
+
+- [LinkedIn](https://www.linkedin.com/company/procyrion/)
+- [Twitter/X](https://twitter.com/Procyrion)
+
+## API Evangelist profile artifacts
+
+- `apis.yml`: the apis.json 0.20 profile for this company
+- `security/procyrion-domain-security.yml`: probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture
+- `well-known/procyrion-well-known.yml`: the full record of the `/.well-known/` and contract-discovery probe, all misses
+- `conformance/procyrion-conformance.yml`: regulatory regime, clinical trials, and the not-applicable API standards block

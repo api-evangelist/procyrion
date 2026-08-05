@@ -1,0 +1,123 @@
+generated: '2026-08-05'
+method: searched
+source: >-
+  Procyrion press releases on www.procyrion.com, the ClinicalTrials.gov v2 API, and
+  trade-press coverage (2026-08-05)
+scope: >-
+  Procyrion publishes no API, so there are no API or cross-cutting technical standards to
+  assert. What it is actually measured against is the US medical device regulatory pathway
+  and the medical device quality-management standard. Those are recorded here as the
+  applicable regimes, with status stated honestly. The API/protocol standards block below
+  is recorded as not-applicable rather than false, so this file is never mistaken for an
+  API posture the company does not claim.
+regulatory_regime:
+- id: iso-13485-2016
+  name: ISO 13485:2016 - Medical devices, quality management systems
+  conforms: true
+  status: certified
+  evidence: >-
+    Procyrion announced ISO 13485:2016 certification for its medical device and quality
+    management systems in May 2018, on its own press-release page.
+  source: https://www.procyrion.com/news/procyrion-inc-announces-iso-13485-2016-certification
+  note: >-
+    This is a device-manufacturing quality certification, not a published information
+    security or API compliance program, so it does not earn a `Compliance` pointer in
+    apis.yml. Recorded here for what it is.
+- id: fda-breakthrough-device-designation
+  name: US FDA Breakthrough Device Designation
+  conforms: true
+  status: granted
+  granted: '2019-07-30'
+  evidence: >-
+    FDA granted Breakthrough Device Designation to the Aortix System for chronic heart
+    failure patients hospitalized with acute decompensated heart failure and worsening
+    renal function.
+  source: https://www.procyrion.com/news/procyrion-receives-fda-breakthrough-device-designation-for-aortix-tm-system
+- id: fda-ide-pivotal-trial
+  name: US FDA Investigational Device Exemption (IDE) pivotal trial
+  conforms: false
+  status: in-progress
+  evidence: >-
+    The DRAIN-HF pivotal IDE trial (NCT05677100, "Diuretics Alone vs. Aortix Endovascular
+    Device for Acute Heart Failure") began 2023-08-23 and is RECRUITING as of 2026-08-05,
+    with a target enrollment of 320 across US centers.
+  source: https://clinicaltrials.gov/study/NCT05677100
+  note: >-
+    conforms:false records that PMA/market authorization has not been granted, not that a
+    check was failed. Aortix is limited by federal law to investigational use and is not
+    approved for sale in any geography.
+- id: fda-premarket-authorization
+  name: US FDA premarket authorization for commercial sale
+  conforms: false
+  status: not-granted
+  evidence: >-
+    Procyrion's own disclaimer and overview pages state that Aortix "is not available for
+    sale in any geography" and is for investigational use only; the EU statement is
+    "Exclusively for Clinical Investigations in the European Union".
+  source: https://www.procyrion.com/disclaimer
+clinical_trials:
+  source: https://clinicaltrials.gov/api/v2/studies?query.spons=Procyrion
+  fetched: '2026-08-05'
+  studies:
+  - nct_id: NCT05677100
+    title: Diuretics Alone vs. Aortix Endovascular Device for Acute Heart Failure (DRAIN-HF)
+    status: RECRUITING
+    start: '2023-08-23'
+    enrollment: 320
+  - nct_id: NCT04145635
+    title: The Aortix CRS Pilot Study
+    status: COMPLETED
+    start: '2021-02-05'
+    enrollment: 21
+  - nct_id: NCT04999163
+    title: Aortix Therapy for Perioperative Reduction of Kidney Injury
+    status: TERMINATED
+    start: '2022-07-17'
+    enrollment: 20
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: no public API contract published (see well-known/procyrion-well-known.yml)
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: graphql
+  conforms: false
+  applicable: false
+  evidence: /graphql returns 404 on www.procyrion.com
+- id: mcp
+  conforms: false
+  applicable: false
+- id: a2a
+  conforms: false
+  applicable: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json both return 404 on
+    www.procyrion.com
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on www.procyrion.com
+information_security_compliance:
+  found: false
+  note: >-
+    No trust center, SOC 2, ISO 27001 or equivalent information-security certification page
+    was found by probe-security-programs.py (vdp=none trust=none) or by search;
+    trust.procyrion.com and security.procyrion.com do not resolve. No `Compliance` and no
+    `TrustCenter` pointer is wired in apis.yml.
+domain_security_observed:
+  source: security/procyrion-domain-security.yml
+  summary: >-
+    www.procyrion.com serves TLS 1.3 with HSTS (max-age 31536000), and procyrion.com has
+    DNSSEC, SPF and DMARC records present; DMARC policy is p=none (monitor only) and no CAA
+    record is published.
