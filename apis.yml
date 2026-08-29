@@ -12,6 +12,17 @@ description: 'Procyrion, Inc. is a privately held, clinical-stage medical device
   medical hardware and clinical company - it publishes no developer program, public API,
   SDK, or machine-readable API contract.'
 url: https://raw.githubusercontent.com/api-evangelist/procyrion/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/587e5c5029ad9b731046dd9c/63752bc5ff893ac4d4772909_ProcyrionLogo.svg
 x-type: company
 x-source: harvest:secondary-market
